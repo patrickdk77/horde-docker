@@ -35,20 +35,13 @@ RUN apt-get install -y apache2 libapache2-mod-php mysql-client gnupg2 openssl ph
  && phpenmod horde_lzf \
  && pear channel-discover pear.horde.org \
  && pear channel-update pear.horde.org \
- && pear upgrade-all
-
-RUN apt-get -y install wget \
+ && pear upgrade-all \
+ && apt-get -y install wget \
  && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
  && tar -C /usr/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
  && apt-get -y remove --purge wget \
  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-#RUN echo extension=lzf.so > $PHP_ETC_DIR/mods-available/lzf.ini && phpenmod lzf
-#RUN echo extension=horde_lz4.so > $PHP_ETC_DIR/mods-available/horde_lzf.ini && phpenmod horde_lzf
-#RUN pear channel-discover pear.horde.org
-#RUN pear channel-update pear.horde.org
-#RUN pear upgrade-all
 
 EXPOSE 80
 

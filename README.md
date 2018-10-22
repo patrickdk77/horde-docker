@@ -1,6 +1,6 @@
 Horde Groupware
 ==============
-Updated Fork of [zauberertz/horde](https://git.ziegler.bz/docker/horde) to work with Ubuntu 16.04 and php7.
+Forked from [boredland/horde-docker](https://github.com/boredland/horde-docker) to use phusion/baseimage:master (Ubuntu Bionic 18.04) with PHP 7.2 and newer Horde Groupware. Reduced layer and added dockerize and option to set UID/GID of apacher user.
 
 ### With local Database via Socket-Share
 ```
