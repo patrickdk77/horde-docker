@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ "${DEBUG:-}" = "yes" ] && set -x
+
 if [[ ! -f "/etc/horde/horde/conf.php" ]]; then
     cp -rp /etc/.horde/* /etc/horde/
     cp /etc/horde/horde/conf.php.dist /etc/horde/horde/conf.php
@@ -54,3 +56,5 @@ fi
 sed -i "s/^\(.*use_ssl.*=\)\(.*\);/\1 0;/g" /etc/horde/horde/conf.php
 sed -i "s/^\(.*testdisable.*=\)\(.*\);/\1 $HORDE_TEST_DISABLE;/g" /etc/horde/horde/conf.php
 
+# Fix file/dir permissions 
+chown -R www-data:www-data /var/cache/horde/
