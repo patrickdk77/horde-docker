@@ -1,7 +1,5 @@
-# Xenial
-#FROM phusion/baseimage:latest
-# Bionic??
-FROM phusion/baseimage:master
+# Pin to bionic because php-horde-* unavailable for 20.04 as at 2020-10-06
+FROM phusion/baseimage:18.04-1.0.0
 
 LABEL maintainer "Cheewai Lai <cheewai.lai@gmail.com>"
 
