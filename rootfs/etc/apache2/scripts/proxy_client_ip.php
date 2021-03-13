@@ -7,5 +7,3 @@ if( isset( $_SERVER[ 'HTTP_X_FORWARDED_FOR' ] ) ) {
 if ( isset($_SERVER[ 'HTTP_X_FORWARDED_PROTO' ])) {
     $_SERVER['HTTPS']='on';
 }
-
-?>
